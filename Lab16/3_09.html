@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>сввойства объекта document</title>
+</head>
+<body>
+<input type="button" value="Жёлтый" onclick="document.bgColor='#ffff00';">
+<input type="button" value="Синий" onclick="document.bgColor='#0000ff'; document.fgColor='#ffffff';"><br><br>
+<script language="JavaScript" type="text/javascript">
+    function f1()
+    {
+        if(document.bgColor=='#ffff00'){
+            document.bgColor='blue';
+            document.fgColor='white';
+        }
+        else {
+            document.bgColor='#ffff00';
+            document.fgColor='black';
+        }
+    }
+</script>
+<i><font size="5">Чтобы поменять цвет текста и фон, жми кнопку</font> </i>
+<input type="button" value="менять" onclick="f1();">
+</body>
+</html>

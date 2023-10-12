@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2</title>
+</head>
+<body>
+<label for="sequence-input">Введите последовательность целых и вещественных чисел через пробел:</label>
+<input type="text" id="sequence-input">
+  <button onclick="parse()">Отобразить</button>
+<script>
+    function parse(){
+      let input = document.querySelector('#sequence-input');
+      let String = input.value.trim();
+      let Array = String.split(' ');
+
+      let integerNum = [];
+      let floatNum = [];
+
+      Array.forEach(number=>{
+        let parsedNumber = parseFloat(number);
+        if(Number.isInteger(parsedNumber)){
+          integerNum.push(parsedNumber);
+
+        }
+        else{
+          floatNum.push(parsedNumber);
+        }
+      });
+
+      let intNumString = integerNum.join(' ');
+      let floatNumString = floatNum.join(' ');
+      showInt(intNumString);
+      showFloat(floatNumString);
+
+
+    }
+    function showInt(intNumString){
+        alert("Целочисленные:" + " "  + intNumString);
+    }
+    function showFloat(floatNumString){
+        alert("Вещественные:" + " " + floatNumString)
+    }
+</script>
+</body>
+</html>

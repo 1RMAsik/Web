@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Таймеры</title>
+  <script type="text/javascript">
+    const prime = setInterval("timer()",1000);
+    function timer(){
+      ++document.all.time.innerText;
+    }
+    function  stop()
+    {
+      clearInterval(prime);
+    }
+  </script>
+</head>
+<body>
+  <div id="time">0</div>
+<input type="button" value="Stop" onclick="stop();">
+</body>
+</html>

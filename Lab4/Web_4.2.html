@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/4_1.css">
+    <style>
+        li.f{
+            list-style-image: url("../images/book.png");
+
+/
+        }
+        ul.d{
+            color: pink;
+
+
+        }
+        li{
+           /** color: black;
+        }**//
+        }**//
+        li:nth-of-type(3)::before {
+            content: "";
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 5px;
+
+        }
+
+    </style>
+</head>
+<body>
+<ol type="a" start="6" >
+    <li class ="f">Пункт 1</li>
+    <ul type="square">
+        <li>подпункт 1.1</li>
+    </ul>
+    <li class="f">Пункт 2</li>
+    <ul type="square">
+        <li>подпункт 2.1</li>
+        <li>подпункт 2.2</li>
+    </ul>
+    <li class="f" value="3">Пункт 3</li>
+    <li class="f" value="4">Пункт 4</li>
+    <ul class="d" type="square">
+        <li>подпункт 3.1</li>
+        <li>подпункт 3.2</li>
+        <li>подпункт 3.3</li>
+    </ul>
+    <li class="f" value="5">Пункт 5</li>
+</ol>
+</body>
+</html>

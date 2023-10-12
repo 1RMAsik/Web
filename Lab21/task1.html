@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <style>
+        input {
+            width: 35px;
+        }
+        .form-row {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-row">
+        <label for="name">Ваше имя:</label>
+        <textarea name="name" id="name" cols="25" rows="1"></textarea>
+    </div>
+
+    <div class="form-row">
+        <span>Я обучаюсь в </span>
+        <input type="text" name="college" value="ВГКЭ" readonly>
+        <input type="radio" id="course1" name="course" value="1" checked>
+        <label for="course1" activ>1</label>
+        <input type="radio" id="course2" name="course" value="2">
+        <label for="course2">2</label>
+        <input type="radio" id="course3" name="course" value="3">
+        <label for="course3">3</label>
+        <input type="radio" id="course4" name="course" value="4">
+        <label for="course4">4 курсе</label>
+    </div>
+
+    <div class="form-row">
+        <label for="lessons-select">Мой любимый учебный предмет:</label>
+        <select name="lessons" id="lessons-select">
+            <option value="КПиЯП">КПиЯП</option>
+            <option value="ПССИП">ПССИП</option>
+            <option value="КС">КС</option>
+            <option value="БДиСУБД">БДиСУБД</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <button id="submit-button">Жми</button>
+    </div>
+
+    <script>
+        document.getElementById("submit-button").addEventListener("click", function(){
+            var name  = document.getElementById("name").value;
+            var course = document.querySelector('input[name="course"]:checked').value;
+            var lessons = document.getElementById("lessons-select").value;
+
+            var result = "Привет, " + name + "!\nВы обучались в ВГКЭ на " + course + " курсе и предпочитаете " + lessons;
+
+            alert(result);
+        })
+    </script>
+</body>
+</html>

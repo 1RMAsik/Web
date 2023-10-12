@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2</title>
+</head>
+<body>
+
+<script>
+  document.addEventListener("keydown", function(event) {
+    // Проверяем, нажата ли клавиша Ctrl и клавиша L
+    if (event.ctrlKey && event.key === "l") {
+      // Создаем элемент списка
+      let ul = document.createElement("ul");
+
+      // Создаем три пункта списка с словами на букву "Л"
+      let items = ["Лёша", "Лебедь", "Лес"];
+      for (let i = 0; i < items.length; i++) {
+        let li = document.createElement("li");
+        li.textContent = items[i];
+        ul.appendChild(li);
+      }
+
+      // Добавляем список на страницу
+      document.body.appendChild(ul);
+    }
+  });
+</script>
+</body>
+</html>

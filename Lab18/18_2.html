@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Images and Buttons</title>
+</head>
+<body>
+<img src="/images/1.png" alt="Image 1" width="300">
+<img src="/images/2.jpg" alt="Image 2" width="300">
+<img src="/images/4.jpg" alt="Image 3" width="300">
+
+<button onclick="removeImage()">Delete Image</button>
+<button onclick="addImage()">Add Image</button>
+
+<script>
+  const images = document.getElementsByTagName('img');
+  const deleteButton = document.getElementsByTagName('button')[0];
+  const addButton = document.getElementsByTagName('button')[1];
+
+  for (let i = 0; i < images.length; i++) {
+    images[i].addEventListener('click', function() {
+      const imageCopy = images[i].cloneNode(true);
+      document.body.appendChild(imageCopy);
+    });
+  }
+
+  function removeImage() {
+    if (images.length > 0) {
+      images[0].remove();
+    }
+  }
+
+  function addImage() {
+    const imageUrl = prompt('Введите URL:');
+    if (imageUrl) {
+      const newImage = document.createElement('img');
+      newImage.src = imageUrl;
+      newImage.alt = 'New Image';
+      newImage.width = '300';
+      document.body.appendChild(newImage);
+    }
+  }
+</script>
+</body>
+</html>

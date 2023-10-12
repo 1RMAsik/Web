@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Move header</title>
+  <style>
+    #group-header {
+      text-align: center;
+      position: relative;
+
+    }
+  </style>
+</head>
+<body>
+<h2 id="group-header">ПЗ-56</h2>
+<script>
+  const header = document.getElementById('group-header');
+  let direction = 1;
+  let offset = 0;
+  let intervalId;
+
+
+  header.addEventListener('mouseover', function() {
+    clearInterval(intervalId);
+  });
+
+  header.addEventListener('mouseout', function() {
+    moveHeader();
+  });
+
+  function moveHeader() {
+    intervalId = setInterval(function() {
+      if (offset >= 75) {
+        direction = -1;
+      } else if (offset <= -75) {
+        direction = 1;
+      }
+      offset += direction * 25;
+      header.style.left = offset + 'px';
+    }, 3000);
+  }
+
+  moveHeader();
+</script>
+</body>
+</html>

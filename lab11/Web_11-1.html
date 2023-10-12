@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <input id="text1">
+  <input type=button value="return" onClick="f1();">
+
+<script>
+  function f1() {
+    let n = parseInt(document.getElementById('text1').value);
+    for(let i = 1; i <= n; i++) f2(i);
+  }
+
+  function f2(n) {
+    alert('число ' + n + ' в степени ' + n + '\n= ' + n**n);
+  }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная работа №13</title>
+</head>
+<body>
+<input placeholder="YYYY-MM-DD" type="text" id="dateInput">
+<button onclick="getDaysFromYearStart()">ЖМИ!</button>
+<p id="result"></p>
+<script>
+    function getDaysFromYearStart(){
+          const inputDate = new Date(document.getElementById('dateInput').value);
+          const year = inputDate.getFullYear();
+          const yearsStart = new Date(year, 0, 0);
+          const diffMilliseconds = inputDate - yearsStart;
+          document.getElementById('result').innerHTML = Math.floor(diffMilliseconds / (1000 * 60 * 60 * 24));
+
+  }
+</script>
+</body>
+</html>

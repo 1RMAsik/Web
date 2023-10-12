@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Задание 1</title>
+  <style>
+    h1 {text-align: center;}
+    h3 {text-align: left;}
+    h5 {text-align: right;}
+    table {
+      border-collapse: collapse;
+      border: 2px solid #000;
+    }
+    th, td{
+      border: 1px solid #000;
+      padding: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<h1>Заголовок 1</h1>
+<h3>Заголовок 3</h3>
+<h5>Заголовок 5</h5>
+
+<p>Это абзац текста.</p>
+<p>Еще один абзац текста.</p>
+<p>И еще один абзац текста.</p>
+
+<section>
+  <h3>Раздел 1</h3>
+  <ul>
+    <li>Пункт 1</li>
+    <li>Пункт 2</li>
+    <li>Пункт 3</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Раздел 2</h3>
+  <ol>
+    <li>Пункт 1</li>
+    <li>Пункт 2</li>
+    <li>Пункт 3</li>
+  </ol>
+</section>
+
+<table>
+  <tr>
+    <td><bdo dir="rtl">Обратный текст</bdo></td>
+    <td><i>Курсив</i></td>
+    <td><b>Жирный</b></td>
+  </tr>
+  <tr>
+    <td><s>Зачеркнутый текст</s></td>
+    <td><u>Подчеркнутый текст</u></td>
+    <td><sup>Верхний индекс</sup></td>
+  </tr>
+  <tr>
+    <td><sub>Нижний индекс</sub></td>
+  </tr>
+</table>
+
+<button id="changeMarkerType">Римские цифры</button>
+
+<script>
+  const listItems = document.querySelectorAll('ol li');
+
+  let markerType = 'decimal'; // Изначально установлен тип маркера - арабские цифры
+
+  document.getElementById('changeMarkerType').addEventListener('click', () => {
+    if (markerType === 'decimal') {
+      markerType = 'upper-roman'; // Меняем на большие римские цифры
+      document.getElementById('changeMarkerType').textContent = 'Отключить маркер';
+    } else {
+      markerType = 'decimal'; // Возвращаем арабские цифры
+      document.getElementById('changeMarkerType').textContent = 'Изменить маркер';
+    }
+
+    // Применяем новый тип маркера ко всем элементам списка
+    listItems.forEach(item => {
+      item.style.listStyleType = markerType;
+    });
+  })
+</script>
+</body>
+</html>
