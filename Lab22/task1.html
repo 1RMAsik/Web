@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Проверка даты</title>
+</head>
+<body>
+    <h2>Проверка даты</h2>
+    <textarea id="dateInput" rows="4" cols="50"></textarea>
+    <button onclick="checkDate()">Проверить</button>
+    <p id="result"></p>
+
+    <script>
+        function checkDate() {
+            const dateInput = document.getElementById('dateInput').value;
+            const datePattern = /^(\d{4} \d{2} \d{2}|\d{2}\/\d{2}\/\d{4})$/;
+
+            if (datePattern.test(dateInput)) {
+                const parts = dateInput.includes('/') ? dateInput.split('/') : dateInput.split(' ');
+
+                if(dateInput.includes(' ')){
+
+                const day = parseInt(parts[2], 10);
+                const month = parseInt(parts[1], 10);
+                const year = parseInt(parts[0], 10);
+
+                if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+                    document.getElementById('result').textContent = 'Введенная строка является датой в формате мм/чч/гггг или гггг мм чч.';
+                } else {
+                    document.getElementById('result').textContent = 'Введенная строка не является корректной датой.';
+                }
+                
+            } else {
+                const day = parseInt(parts[1], 10)
+                const month = parseInt(parts[0], 10)
+                const year = parseInt(parts[2], 10)
+
+                if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+                    document.getElementById('result').textContent = 'Введенная строка является датой в формате мм/чч/гггг или гггг мм чч.';
+                } else {
+                    document.getElementById('result').textContent = 'Введенная строка не является корректной датой.';
+                }
+            }
+
+            } else {
+                document.getElementById('result').textContent = 'Введенная строка не соответствует формату мм/чч/гггг или гггг мм чч.';
+            }
+        }
+        
+    </script>
+</body>
+</html>

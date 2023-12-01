@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Создание кнопки-изображения</title>
+</head>
+<body>
+  <form>
+    <label for="imageURL">URL изображения:</label>
+    <input type="text" id="imageURL" placeholder="Введите URL изображения">
+    
+    <label for="imageWidth">Ширина изображения (в пикселях):</label>
+    <input type="number" id="imageWidth" placeholder="Введите ширину изображения">
+    
+    <label for="imageHeight">Высота изображения (в пикселях):</label>
+    <input type="number" id="imageHeight" placeholder="Введите высоту изображения">
+    
+    <button type="button" id="createImageButton">Создать кнопку-изображение</button>
+  </form>
+  
+  
+  <div id="imageContainer"></div>
+  
+  <script>
+    document.getElementById('createImageButton').addEventListener('click', function() {
+      const imageURL = document.getElementById('imageURL').value;
+      const imageWidth = document.getElementById('imageWidth').value;
+      const imageHeight = document.getElementById('imageHeight').value;
+  
+      if(imageURL && imageWidth && imageHeight){
+        
+        const imageButtonObject = {
+          type: 'img',
+          src: imageURL,
+          width: imageWidth,
+          height: imageHeight,
+          alt: "Alternative text", 
+          focus: function() { 
+            console.log("Фокус на кнопке-изображении");
+          }
+        };
+  
+        const jsonString = JSON.stringify(imageButtonObject);
+        console.log(jsonString);
+  
+        const parsedPerson = JSON.parse(jsonString);
+        console.log(parsedPerson);
+  
+        const imageButton = document.createElement(imageButtonObject.type);
+        imageButton.src = imageButtonObject.src;
+        imageButton.width = imageButtonObject.width;
+        imageButton.height = imageButtonObject.height;
+  
+        if (imageButtonObject.alt) {
+          imageButton.alt = imageButtonObject.alt;
+        }
+  
+        document.getElementById('imageContainer').appendChild(imageButton);
+  
+        imageButtonObject.focus(); 
+      } else {
+        alert('Пожалуйста, заполните все обязательные поля (URL, ширина и высота).');
+      }
+    });
+  </script>
+  
+</body>
+</html>
